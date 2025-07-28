@@ -144,8 +144,6 @@ pnpm type-check   # Type checking
 
 ## 🌟 Upcoming Improvements
 
-- [ ] **Light/dark mode** - Theme toggle
-- [ ] **More 3D scenes** - Additional experiences
 - [ ] **Integrated blog** - Articles section
 - [ ] **CMS** - Content management
 - [ ] **PWA** - Progressive Web App
