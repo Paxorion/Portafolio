@@ -4,7 +4,6 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles, Bot, Zap, Globe } from "lucide-react"
 import { SplineScene } from "@/components/ui/spline-scene"
-import { ThemeToggle } from "@/components/ui/theme-toggle"
 
 interface LandingPageProps {
   onEnter: () => void
@@ -12,12 +11,7 @@ interface LandingPageProps {
 
 export function LandingPage({ onEnter }: LandingPageProps) {
   return (
-    <div className="min-h-screen bg-black dark:bg-black light:bg-white relative overflow-hidden">
-      {/* Theme Toggle */}
-      <div className="fixed top-4 right-4 z-50">
-        <ThemeToggle />
-      </div>
-
+    <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Full screen Spline scene - Full width for tracking */}
       <div className="absolute inset-0 w-full h-full">
         <SplineScene
