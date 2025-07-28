@@ -1,0 +1,152 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { ExternalLink, ArrowRight, Sparkles } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+export function Projects() {
+  const projects = [
+    {
+      title: "AI Legal Agent",
+      description:
+        "Conversational agent specialized in Mexican criminal law using Agno and OpenAI. Handles 300+ weekly queries with 85% contextual accuracy.",
+      tech: ["Agno", "OpenAI API", "RAG", "Contextual Segmentation"],
+      status: "In Development",
+      color: "from-purple-500 to-blue-600",
+    },
+    {
+      title: "n8n Automation",
+      description:
+        "Automated workflows that reduce manual processing time by 30%. Integration with multiple APIs and systems.",
+      tech: ["n8n", "API Integration", "Workflow Automation"],
+      status: "Active",
+      color: "from-blue-500 to-cyan-600",
+    },
+    {
+      title: "Google Ads Campaigns",
+      description:
+        "SEM strategies that increased web traffic by 40% and lead generation by 25% in 3 months for small businesses.",
+      tech: ["Google Ads", "SEM", "Analytics", "Conversion Optimization"],
+      status: "Completed",
+      color: "from-green-500 to-teal-600",
+    },
+    {
+      title: "Enterprise Websites",
+      description: "Development of responsive and SEO-optimized websites for local brands using React and Next.js.",
+      tech: ["React", "Next.js", "SEO", "Responsive Design"],
+      status: "Multiple Projects",
+      color: "from-orange-500 to-red-600",
+    },
+    {
+      title: "Unity & VR Development",
+      description: "Game programming and VR experiences using Unity with C#. Basic 3D modeling with Maya.",
+      tech: ["Unity", "C#", "Maya", "3D Modeling", "VR"],
+      status: "Academic Projects",
+      color: "from-pink-500 to-purple-600",
+    },
+    {
+      title: "Semantic Search",
+      description: "Implementation of semantic search systems using pgvector to improve query accuracy in databases.",
+      tech: ["pgvector", "PostgreSQL", "Semantic Search", "Embeddings"],
+      status: "Research",
+      color: "from-indigo-500 to-purple-600",
+    },
+  ]
+
+  return (
+    <section id="projects" className="py-20 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 via-neutral-200 to-neutral-400">
+            My Projects
+          </h2>
+          <p className="text-xl bg-gradient-to-b from-neutral-300 via-neutral-400 to-neutral-500 bg-clip-text text-transparent max-w-3xl mx-auto">
+            A collection of projects demonstrating my expertise in AI, automation, and web development
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group relative bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 hover:border-purple-500 transition-all duration-300"
+            >
+              {/* Gradient background */}
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
+              />
+
+              <div className="relative z-10">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                    {project.title}
+                  </h3>
+                  <span className="text-xs px-2 py-1 bg-purple-600/20 text-purple-300 rounded-full">
+                    {project.status}
+                  </span>
+                </div>
+
+                <p className="text-neutral-300 mb-4 leading-relaxed">{project.description}</p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tech.map((tech) => (
+                    <span key={tech} className="text-xs px-2 py-1 bg-gray-700/50 text-neutral-300 rounded-md">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-2">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="border-gray-600 text-neutral-300 hover:bg-gray-700 bg-transparent"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    View More
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="text-center mt-12"
+        >
+          <p className="text-neutral-400 mb-6">Interested in collaborating on a project?</p>
+          <Button
+            onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+            size="lg"
+            className="group relative bg-white hover:bg-gray-50 text-black px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-black/30 border-2 border-white overflow-hidden"
+          >
+            {/* Animated background effect */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-100"
+              initial={{ x: "-100%" }}
+              whileHover={{ x: "100%" }}
+              transition={{ duration: 0.6 }}
+            />
+            <Sparkles className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform text-black relative z-10" />
+            <span className="relative z-10">Contact Me</span>
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform text-black relative z-10" />
+          </Button>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
