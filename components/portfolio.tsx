@@ -50,15 +50,16 @@ export function Portfolio({ onBack }: PortfolioProps) {
     <main className="min-h-screen bg-black text-white relative">
       {/* Back to Landing Page Button */}
       {onBack && (
-        <div className="fixed top-4 right-4 z-50">
+        <div className="fixed top-2 right-2 md:top-4 md:right-4 z-50">
           <Button
             onClick={onBack}
             variant="outline"
             size="sm"
-            className="bg-black/20 backdrop-blur-md border-white/20 text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300"
+            className="bg-black/20 backdrop-blur-md border-white/20 text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 text-xs md:text-sm px-2 py-1 md:px-3 md:py-2"
           >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Landing
+            <ArrowLeft className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
+            <span className="hidden sm:inline">Back to Landing</span>
+            <span className="sm:hidden">Back</span>
           </Button>
         </div>
       )}
@@ -73,7 +74,7 @@ export function Portfolio({ onBack }: PortfolioProps) {
         <Contact />
       </div>
       {/* Floating Dock */}
-      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40">
+      <div className="fixed bottom-2 md:bottom-6 left-1/2 transform -translate-x-1/2 z-40">
         <FloatingDock items={dockItems} />
       </div>
       
