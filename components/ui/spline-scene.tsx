@@ -129,7 +129,7 @@ export function SplineScene({ scene, className, enableControls = true }: SplineS
   const onError = () => {
     setHasError(true)
     setIsLoading(false)
-  }
+}
 
   // Loading animation component
   const LoadingAnimation = () => (
@@ -176,7 +176,7 @@ export function SplineScene({ scene, className, enableControls = true }: SplineS
     </div>
   )
 
-  // Error fallback component
+// Error fallback component
   const ErrorFallback = () => (
     <div className="w-full h-full flex items-center justify-center bg-gray-900/50 backdrop-blur-sm">
       <div className="text-center">

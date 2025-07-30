@@ -3,6 +3,7 @@
 import { motion } from "motion/react"
 import { Bot, Zap, Globe, Users } from "lucide-react"
 import GlowingEffectDemo from "@/components/glowing-effect-demo"
+import { MorphingAnimation } from "./ui/morphing-animation"
 
 export function About() {
   const features = [
@@ -58,11 +59,23 @@ export function About() {
             viewport={{ once: true }}
           >
             <div className="relative">
-              <div className="w-80 h-80 mx-auto rounded-2xl bg-gradient-to-br from-purple-500 to-blue-600 p-1">
-                <div className="w-full h-full rounded-2xl bg-gray-800 flex items-center justify-center">
-                  <div className="text-6xl">🤖</div>
-                </div>
-              </div>
+              <MorphingAnimation 
+                intensity="medium" 
+                duration="8s" 
+                className="w-80 h-80 mx-auto bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 flex items-center justify-center shadow-2xl border border-gray-700"
+              >
+                <img 
+                  src="/images/pintura.png" 
+                  alt="Oxidized Block" 
+                  className="w-32 h-32 object-cover rounded-lg"
+                  onError={(e) => {
+                    // Fallback al emoji si la imagen no carga
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                  }}
+                />
+                <div className="text-6xl hidden">🚀</div>
+              </MorphingAnimation>
             </div>
           </motion.div>
 
@@ -120,7 +133,7 @@ export function About() {
               className="text-center p-6 rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-purple-500 transition-all duration-300"
             >
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 via-blue-600 to-green-500 flex items-center justify-center">
-                <feature.icon className="w-8 h-8 text-white" />
+                <feature.icon className="w-8 h-8 text-cyan-300" />
               </div>
               <h4 className="text-xl font-semibold mb-2 text-white">{feature.title}</h4>
               <p className="text-neutral-300">{feature.description}</p>

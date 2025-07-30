@@ -24,5 +24,5 @@ export default function Home() {
     return <LandingPage onEnter={() => setShowPortfolio(true)} />
   }
 
-  return <Portfolio />
+  return <Portfolio onBack={() => setShowPortfolio(false)} />
 }

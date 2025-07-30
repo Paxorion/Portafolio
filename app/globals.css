@@ -27,8 +27,67 @@
 
 html {
   scroll-behavior: smooth;
-}
+  }
 
 body {
   overflow-x: hidden;
+}
+
+@layer utilities {
+  @keyframes custom-morphing {
+    0%, 100% {
+      border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+    25% {
+      border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+    }
+    50% {
+      border-radius: 50% 60% 50% 70%/40% 40% 60% 50%;
+    }
+    75% {
+      border-radius: 60% 40% 30% 60%/60% 50% 70% 30%;
+    }
+  }
+  
+  @keyframes custom-morphing-subtle {
+    0%, 100% {
+      border-radius: 55% 45% 47% 53%/53% 48% 52% 47%;
+    }
+    25% {
+      border-radius: 48% 52% 53% 47%/51% 53% 47% 49%;
+    }
+    50% {
+      border-radius: 52% 48% 50% 50%/48% 47% 53% 52%;
+    }
+    75% {
+      border-radius: 53% 47% 48% 52%/52% 50% 50% 48%;
+    }
+  }
+  
+  @keyframes custom-morphing-strong {
+    0%, 100% {
+      border-radius: 70% 30% 20% 80%/70% 20% 80% 30%;
+    }
+    25% {
+      border-radius: 20% 80% 80% 20%/40% 70% 30% 60%;
+    }
+    50% {
+      border-radius: 40% 60% 30% 70%/30% 30% 70% 70%;
+    }
+    75% {
+      border-radius: 70% 30% 20% 80%/50% 60% 70% 20%;
+    }
+  }
+
+  .animate-custom-morphing {
+    animation: custom-morphing 8s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  }
+  
+  .animate-custom-morphing-subtle {
+    animation: custom-morphing-subtle 8s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  }
+  
+  .animate-custom-morphing-strong {
+    animation: custom-morphing-strong 8s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  }
 }

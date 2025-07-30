@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { ExternalLink, ArrowRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import ShineCard from "@/components/ui/shine-card"
 
 export function Projects() {
   const projects = [
@@ -79,44 +80,43 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group relative bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 hover:border-purple-500 transition-all duration-300"
             >
-              {/* Gradient background */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
-              />
-
-              <div className="relative z-10">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
-                    {project.title}
-                  </h3>
-                  <span className="text-xs px-2 py-1 bg-purple-600/20 text-purple-300 rounded-full">
-                    {project.status}
-                  </span>
-                </div>
-
-                <p className="text-neutral-300 mb-4 leading-relaxed">{project.description}</p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech) => (
-                    <span key={tech} className="text-xs px-2 py-1 bg-gray-700/50 text-neutral-300 rounded-md">
-                      {tech}
+              <ShineCard
+                className="h-full p-6"
+                speed={0.8}
+                intensity={0.3}
+                color="#8B5CF6"
+                strokeColor="#A855F7"
+                borderRadius="16px"
+                background="rgba(31, 31, 31, 0.8)"
+                backdropBlur="8px"
+                border="1px solid rgba(139, 92, 246, 0.2)"
+                direction="tl"
+                typeCard="vertical"
+              >
+                <div className="h-full flex flex-col">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                      {project.title}
+                    </h3>
+                    <span className="text-xs px-2 py-1 bg-purple-600/20 text-purple-300 rounded-full">
+                      {project.status}
                     </span>
-                  ))}
-                </div>
+                  </div>
 
-                <div className="flex gap-2">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="border-gray-600 text-neutral-300 hover:bg-gray-700 bg-transparent"
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    View More
-                  </Button>
+                  <p className="text-neutral-300 mb-4 leading-relaxed flex-grow">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech) => (
+                      <span key={tech} className="text-xs px-2 py-1 bg-gray-700/50 text-neutral-300 rounded-md">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+
                 </div>
-              </div>
+              </ShineCard>
             </motion.div>
           ))}
         </div>
